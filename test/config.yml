@@ -1,0 +1,5 @@
+DBConnection:
+  driver: "sqlite3"
+  dsn: "./test.db"
+DBMigration:
+  verbose: true
