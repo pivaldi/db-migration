@@ -37,6 +37,8 @@ func init() {
 	Root.AddCommand(upByOneCmd)
 	Root.AddCommand(statusCmd)
 	Root.AddCommand(upToCmd)
+	Root.AddCommand(donwCmd)
+	Root.AddCommand(downToCmd)
 }
 
 // Execute executes the root command.
