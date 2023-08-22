@@ -2,6 +2,8 @@ package cmds
 
 import (
 	"fmt"
+	"log"
+	"os"
 	"strings"
 
 	"github.com/pivaldi/db-migration/drivers"
@@ -53,6 +55,7 @@ func gooseRunWithOptions(command string, args []string) {
 	}
 
 	if err := goose.RunWithOptions(command, db, dbmConfig.DBMigration.Dir, args, options...); err != nil {
-		panic(err)
+		log.Fatalln(err)
+		os.Exit(1)
 	}
 }
