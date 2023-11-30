@@ -2,8 +2,6 @@ package cmds
 
 import (
 	"fmt"
-	"log"
-	"os"
 	"strings"
 
 	"github.com/pivaldi/db-migration/drivers"
@@ -31,7 +29,7 @@ func gooseRunWithOptions(command string, args []string) {
 	case "sqlite3":
 		//  Internally uses the CGo-free port of SQLite: modernc.org/sqlite
 		dbmConfig.DBConnection.Driver = "sqlite"
-	case "postgres":
+	case "postgres", "pgx", "psql":
 		dbmConfig.DBConnection.Driver = "pgx"
 	}
 
@@ -55,7 +53,6 @@ func gooseRunWithOptions(command string, args []string) {
 	}
 
 	if err := goose.RunWithOptions(command, db, dbmConfig.DBMigration.Dir, args, options...); err != nil {
-		log.Fatalln(err)
-		os.Exit(1)
+		panic(err)
 	}
 }

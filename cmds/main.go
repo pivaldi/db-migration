@@ -6,7 +6,7 @@ import (
 )
 
 var driversList = []string{
-	"postgres", "mysql", "sqlite3", "mssql", "redshift", "tidb", "clickhouse", "vertica",
+	"postgres", "pgx", "psql", "mysql", "sqlite3", "mssql", "redshift", "tidb", "clickhouse", "vertica",
 }
 
 var Root = &cobra.Command{
